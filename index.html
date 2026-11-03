@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📚 Student Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>📚 Student Study Planner</h1>
+    <p>Track your subjects, assignments, deadlines and progress.</p>
+  </header>
+
+  <main class="container">
+    <!-- ADD FORM -->
+    <section class="card">
+      <h2 id="formTitle">➕ Add New Assignment</h2>
+      <form id="assignmentForm">
+        <input type="hidden" id="assignmentId" />
+
+        <div class="form-grid">
+          <div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="e.g. Web Technology" required />
+          </div>
+
+          <div>
+            <label for="assignment">Assignment</label>
+            <input type="text" id="assignment" placeholder="e.g. HTML Forms" required />
+          </div>
+
+          <div>
+            <label for="deadline">Deadline</label>
+            <input type="date" id="deadline" required />
+          </div>
+
+          <div>
+            <label for="status">Status</label>
+            <select id="status">
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="submitBtn">Add Assignment</button>
+          <button type="button" class="btn-secondary" id="cancelEditBtn" style="display:none">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- SEARCH & FILTER -->
+    <section class="card">
+      <h2>🔍 Search & Filter</h2>
+      <div class="filter-row">
+        <input type="text" id="searchInput" placeholder="Search by subject or assignment..." />
+        <select id="statusFilter">
+          <option value="All">All Status</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- PENDING -->
+    <section class="card">
+      <h2>⏳ Pending / In Progress <span class="badge" id="pendingCount">0</span></h2>
+      <div id="pendingList" class="assignment-list"></div>
+    </section>
+
+    <!-- COMPLETED -->
+    <section class="card">
+      <h2>✅ Completed <span class="badge" id="completedCount">0</span></h2>
+      <div id="completedList" class="assignment-list"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
